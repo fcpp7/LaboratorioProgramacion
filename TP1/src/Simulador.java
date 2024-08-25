@@ -1,3 +1,4 @@
+import java.util.EmptyStackException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -11,23 +12,28 @@ public class Simulador {
         DeporteFactory basquetFactory = new BasquetFactory();
         DeporteFactory tenisFactory = new TenisFactory();
 
-        // Crear deportes usando las fábricas
+        // Crear deportes
         Deporte futbol = futbolFactory.crearDeporte();
         Deporte basquet = basquetFactory.crearDeporte();
         Deporte tenis = tenisFactory.crearDeporte();
 
-        // Crear tareas para los deportes
+        // Crear tareas para el fútbol
         Runnable futbolEstadisticas = new Estadisticas(futbol);
+
+        // Crear tareas para el baloncesto
         Runnable basquetEstadisticas = new Estadisticas(basquet);
+
+        // Crear tareas para el tenis
         Runnable tenisEstadisticas = new Estadisticas(tenis);
 
         // Enviar tareas al ExecutorService
         executorService.submit(futbolEstadisticas);
+
         executorService.submit(basquetEstadisticas);
+
         executorService.submit(tenisEstadisticas);
 
         // Cerrar el ExecutorService
         executorService.shutdown();
     }
 }
-
