@@ -1,6 +1,6 @@
 public class FutbolFactory implements DeporteFactory {
     @Override
-    public Sport crearDeporte() {
+    public Deporte crearDeporte() {
         return new Futbol();
     }
 }

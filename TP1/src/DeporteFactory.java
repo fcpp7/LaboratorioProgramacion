@@ -1,3 +1,3 @@
 public interface DeporteFactory {
-    Sport crearDeporte();
+    Deporte crearDeporte();
 }

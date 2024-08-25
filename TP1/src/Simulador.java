@@ -15,6 +15,7 @@ public class Simulador {
         // Crear deportes
         Deporte futbol = FutbolFactory.crearDeporte();
         Deporte basquet = BasquetFactory.crearDeporte();
+        Deporte tenis = TenisFactory.crearDeporte();
 
         // Crear tareas para el fútbol
         Runnable futbolEstadisticas = new Estadisticas(futbol);
